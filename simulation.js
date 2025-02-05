@@ -67,6 +67,7 @@ function init() {
   var canvas = document.getElementById("simulationCanvas");
   renderer = new THREE.WebGLRenderer({ canvas: canvas });
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.localClippingEnabled = true;
 
   scene = new THREE.Scene();
   createStars();
@@ -93,7 +94,8 @@ function init() {
       grid[i][j] = Math.random() < 0.3 ? 1 : 0;
     }
   }
-
+  
+  onWindowResize();
   requestAnimationFrame(animate);
 }
 
@@ -131,4 +133,13 @@ function createStars() {
   scene.add(starField);
 }
 
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  var horizontalFOV = 2 * Math.atan(Math.tan(THREE.Math.degToRad(camera.fov / 2)) * camera.aspect);
+  var newScale = 0.9 * camera.position.z * Math.tan(horizontalFOV / 2);
+  sphere.scale.set(newScale, newScale, newScale);
+}
+window.addEventListener('resize', onWindowResize);
 window.onload = init;
