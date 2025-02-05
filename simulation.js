@@ -46,7 +46,7 @@ function updateGrid() {
 }
 
 function drawSimulationOnTexture() {
-  textureCtx.fillStyle = "black";
+  textureCtx.fillStyle = "darkred";
   textureCtx.fillRect(0, 0, textureSize, textureSize);
   
   var cellWidth = textureSize / cols;
@@ -55,7 +55,7 @@ function drawSimulationOnTexture() {
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < cols; j++) {
       if (grid[i][j] === 1) {
-        var hue = (j * 3 + i * 3 + frameCount) % 360;
+        var hue = ((j * 3 + i * 3 + frameCount) % 30);
         textureCtx.fillStyle = "hsl(" + hue + ", 100%, 50%)";
         textureCtx.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
       }
@@ -69,6 +69,7 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   scene = new THREE.Scene();
+  createStars();
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 3;
@@ -112,6 +113,22 @@ function animate(timestamp) {
   
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
+}
+
+function createStars() {
+  var starGeometry = new THREE.BufferGeometry();
+  var starCount = 1000;
+  var stars = [];
+  for (var i = 0; i < starCount; i++) {
+    var x = (Math.random() - 0.5) * 2000;
+    var y = (Math.random() - 0.5) * 2000;
+    var z = (Math.random() - 0.5) * 2000;
+    stars.push(x, y, z);
+  }
+  starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(stars, 3));
+  var starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+  var starField = new THREE.Points(starGeometry, starMaterial);
+  scene.add(starField);
 }
 
 window.onload = init;
