@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Game of Life Sphere Simulation</title>
   <style>
-    body { margin: 0; overflow: hidden; background: url("background.png") no-repeat center center fixed; background-size: cover; }
+    body { margin: 0; overflow: hidden; }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("background.png") no-repeat center center fixed;
+        background-size: cover;
+        filter: blur(2px) saturate(1.2);
+        z-index: -1;
+    }
     canvas { display: block; }
     #banner {
         position: absolute;
