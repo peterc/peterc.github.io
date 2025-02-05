@@ -140,6 +140,9 @@ function onWindowResize() {
   var horizontalFOV = 2 * Math.atan(Math.tan(THREE.Math.degToRad(camera.fov / 2)) * camera.aspect);
   var newScale = 0.9 * camera.position.z * Math.tan(horizontalFOV / 2);
   sphere.scale.set(newScale, newScale, newScale);
+  var bottomY = - camera.position.z * Math.tan(THREE.Math.degToRad(camera.fov / 2));
+  sphere.position.set(0, bottomY, 0);
+  camera.lookAt(0, bottomY + newScale, 0);
 }
 window.addEventListener('resize', onWindowResize);
 window.onload = init;
