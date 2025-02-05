@@ -65,7 +65,8 @@ function drawSimulationOnTexture() {
 
 function init() {
   var canvas = document.getElementById("simulationCanvas");
-  renderer = new THREE.WebGLRenderer({ canvas: canvas });
+  renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+  renderer.setClearColor(0x000000, 0);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.localClippingEnabled = true;
 
