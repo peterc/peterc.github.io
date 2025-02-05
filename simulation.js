@@ -1,4 +1,4 @@
-var renderer, scene, camera, sphere, simulationTexture;
+var renderer, scene, camera, sphere, simulationTexture, starMaterial;
 var grid;
 var cols = 100, rows = 100;
 var updateInterval = 150; // milliseconds update interval for the simulation
@@ -119,6 +119,10 @@ function animate(timestamp) {
   
   sphere.rotation.y += 0.005;
   sphere.rotation.x += 0.003;
+
+  if (typeof starMaterial !== "undefined") {
+      starMaterial.opacity = 0.5 + 0.5 * Math.sin(frameCount * 0.05);
+  }
   
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
@@ -126,7 +130,7 @@ function animate(timestamp) {
 
 function createStars() {
   var starGeometry = new THREE.BufferGeometry();
-  var starCount = 1000;
+  var starCount = 5000;
   var stars = [];
   for (var i = 0; i < starCount; i++) {
     var x = (Math.random() - 0.5) * 2000;
@@ -135,7 +139,7 @@ function createStars() {
     stars.push(x, y, z);
   }
   starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(stars, 3));
-  var starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+  starMaterial = new THREE.PointsMaterial({ color: 0xffffff, transparent: true, opacity: 1.0 });
   var starField = new THREE.Points(starGeometry, starMaterial);
   scene.add(starField);
 }
