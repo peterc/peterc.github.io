@@ -1,0 +1,30 @@
+
+# 2025-02-05 20:15:35.853729
++I’d like to make a JS simulation of a sphere where the universe of Conway's Game of Life is unfolding, multicolor, lots of small squares, on a black background
+
+# 2025-02-05 20:16:49.060024
++that's fantastic but i want it on an actual sphere. you might need to use webgl or something for that
+
+# 2025-02-05 20:19:38.474316
++Could you make it so that the planet is by default red and the different colors of the game states are shades of red and orange? Then in the overall background add some stars as if we're in space looking at a planet.
+
+# 2025-02-05 20:21:11.407913
++Can you make it so that we only see the top half of the sphere in the viewport? Also make it so that it's responsive so that the planet is always about 90% the width of the viewport so I can resize and it just works.
+
+# 2025-02-05 20:22:43.007393
++Not quite right. The sphere is sometimes much wider than the viewport! Also I want the middle of the sphere to be at the bottom of the viewport so we see the top half only.
+
+# 2025-02-05 20:29:26.705532
++Make background.png the background of the page and have it so it's always filling the screen but with no change of aspect ratio
+
+# 2025-02-05 20:30:04.636224
++fix the simulation to render a transparent background so the web page background can show through
+
+# 2025-02-05 20:30:45.249270
++can you shade the sphere in some way so that it looks more 3 dimensional rather than just flat?
+
+# 2025-02-05 20:32:27.971136
++now across the top third of the HTML page can you put big impactful text across the page saying "THE PLANET OF LIFE" maybe skewed up a bit going from left to right for a sort of 50s sci-fi movie poster vibe
+
+# 2025-02-05 20:33:25.121109
++make the text bigger (maybe restrain it to 70% of the viewport width) and the letters in white with a more striking hard shadow
