@@ -71,6 +71,12 @@ function init() {
   renderer.localClippingEnabled = true;
 
   scene = new THREE.Scene();
+  // Add lights for 3D shading
+  var ambientLight = new THREE.AmbientLight(0x404040);
+  scene.add(ambientLight);
+  var directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+  directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
   createStars();
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -85,7 +91,7 @@ function init() {
   simulationTexture.minFilter = THREE.LinearFilter;
 
   var geometry = new THREE.SphereGeometry(1, 64, 64);
-  var material = new THREE.MeshBasicMaterial({ map: simulationTexture });
+  var material = new THREE.MeshPhongMaterial({ map: simulationTexture, shininess: 60 });
   sphere = new THREE.Mesh(geometry, material);
   scene.add(sphere);
 
