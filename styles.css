@@ -1,0 +1,228 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #333;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.settings-container {
+    margin-bottom: 20px;
+}
+
+.settings-toggle {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6c757d;
+    /* transition: all 0s ease; */
+}
+
+.settings-toggle:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.settings-panel {
+    max-height: 0;
+    overflow: hidden;
+    
+    border-left: 3px solid #007bff;
+    margin-top: 10px;
+}
+
+.settings-panel.open {
+    max-height: 300px;
+    padding-left: 15px;
+}
+
+.settings-panel .input-group {
+    margin-bottom: 0;
+    padding-top: 10px;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+textarea {
+    min-height: 140px;
+    max-height: 300px;
+    resize: vertical;
+    padding-right: 90px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: border-color 0.2s ease;
+    overflow-y: auto;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#clearBtn {
+    position: absolute;
+    right: 52px;
+    bottom: 8px;
+    background-color: #dc3545;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 36px;
+    height: 36px;
+}
+
+#clearBtn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+#sendBtn {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 36px;
+    height: 36px;
+}
+
+#sendBtn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+#sendBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#sendBtn svg {
+    transition: transform 0.2s ease;
+}
+
+#sendBtn:hover:not(:disabled) svg {
+    transform: translateX(1px);
+}
+#response {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    min-height: 50px;
+    display: none;
+}
+
+#response.visible {
+    display: block;
+}
+.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.loading {
+    color: #6c757d;
+    font-style: italic;
+}
+
+#response h1, #response h2, #response h3, #response h4, #response h5, #response h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#response h1 { font-size: 1.5em; }
+#response h2 { font-size: 1.3em; }
+#response h3 { font-size: 1.1em; }
+
+#response p {
+    margin-bottom: 1em;
+}
+
+#response ul, #response ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+#response li {
+    margin-bottom: 0.25em;
+}
+
+#response code {
+    background-color: #e9ecef;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+#response pre {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+#response pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+#response blockquote {
+    border-left: 4px solid #007bff;
+    margin: 1em 0;
+    padding-left: 1em;
+    color: #6c757d;
+}
